@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
-const PRIVATE='https://naukaries.herokuapp.com/private/';
-const PUBLIC='https://naukaries.herokuapp.com/public/';
+const PRIVATE= environment.PRIVATEApiUrl;
+const PUBLIC=environment.PUBLICApiUrl;
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,7 @@ constructor(private httpCli:HttpClient) { }
       observe:'body',
       withCredentials:true,
       headers:new HttpHeaders().append('Content-Type','application/json')
+      .append('Access-Control-Allow-Headers', 'Content-Type') .append('Access-Control-Allow-Methods', 'GET') .append('Access-Control-Allow-Origin', '*')
     }
     );
   }

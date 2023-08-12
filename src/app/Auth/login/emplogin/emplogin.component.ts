@@ -21,13 +21,14 @@ export class EmploginComponent implements OnInit {
     this.router.navigate(['register/emp_register']);
   }
   login() {
+    console.log(13);
     // if (!this.loginForm.valid) {
     //   console.log('Invalid'); return;
     // }
     //console.log(JSON.stringify(this.loginForm.value.username));
     this.empservice.login(JSON.stringify(this.loginForm.value))
       .subscribe(
-        (response: any) => {
+        (response: any) => { console.log(2324)
           if (response.status && response.status === 1) {
             this.loginsuccess = "Login Success-Going to Dashboard";
             localStorage.setItem('token',response.data.token);
@@ -40,11 +41,11 @@ export class EmploginComponent implements OnInit {
               this.router.navigate(['dashboard/jobs']);
             }, 2000);
           }
-          else {
+          else {console.log(22324)
             this.loginfail = "Invalid Username/Password";
           }
         },
-        (error) => { console.log(error); }
+        (error) => { console.log(5324);console.log(error); }
       );
   }
   get form(){

@@ -49,6 +49,7 @@
 </form>
 </div>
 <div class="container" *ngIf="companymsg">
+    <pre>Data Obtained is: {{jobs | json }}</pre>
         <div class="row" *ngIf="successmsg; else nojobsmessage">
             <table class="table">
                 <thead>

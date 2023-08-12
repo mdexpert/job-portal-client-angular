@@ -8,7 +8,7 @@ import{ForseekerService} from '../../../forseeker.service';
 export class JobsComponent implements OnInit {
 
 
-jobs:any=[];
+jobs:any=[]; 
 waitforjobs:any;
 appliedmessage:any;
 alreadyapplied:any;
@@ -24,11 +24,13 @@ headers=['Company Name','Job Role','Skills','Job Type','Experience',''];
   {
     this.seekerservice.getjobs().subscribe(
       (response:any)=>
-    {
+    {       
       if(response && response.length>0)
-      {
-        this.jobs=response;
+      { 
+        this.jobs=response;  
         this.totaljobs=response.length;
+      }else{
+        
       } 
     },
     (error)=>{
@@ -37,8 +39,7 @@ headers=['Company Name','Job Role','Skills','Job Type','Experience',''];
     );
   }
   apply(jobapply:any)
-  {
-    console.log(jobapply);
+  { 
     this.seekerservice.applyjob(jobapply).subscribe(
       (response:any)=>{
         if(response.status && response.status==1){

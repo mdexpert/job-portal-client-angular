@@ -9,8 +9,7 @@
     </div>
     
 </div>
-<div class="container mt-3">
-   
+<div class="container mt-3">   
     <div class="table-responsive">
         <table class="table">
             <thead class="bg-info">
@@ -31,7 +30,7 @@
                     <td class="text-center">{{job.jobDetails.expRequired}}</td>
                     <td><button class="btn btn-success" style="width:100%;height:auto;border-radius: 45px;"
                             (click)="apply(job)">Apply</button>
-                        <!-- <small>{{job.jobDetails.postedDate}}</small> -->
+                         <small>{{job.jobDetails.postedDate}}</small>  
                     </td>
                     <!-- 
                         we need to bind the id of each job to the button,we can pass direct id or "job"
@@ -46,4 +45,4 @@
 
     </div>
 
-</div>
+</div> 

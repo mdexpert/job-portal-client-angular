@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment } from '../environments/environment';
 
-const PRIVATE='https://naukaries.herokuapp.com/private/';
-const PUBLIC='https://naukaries.herokuapp.com/public/';
+const PRIVATE= environment.PRIVATEApiUrl;
+const PUBLIC=environment.PUBLICApiUrl;
 @Injectable({
   providedIn: 'root'
 })
@@ -37,7 +37,7 @@ export class ForseekerService {
         'Authorization': 'Bearer '+this.gettoken()
       })
     };
-    console.log(httpOptions);
+    console.log(httpOptions); 
     return this.httpCli.get(`${PRIVATE}employees/getjobs/${this.getpayload().id}`,httpOptions);
   }
   searchbycompany(companyname)

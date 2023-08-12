@@ -10,9 +10,9 @@
             <tbody>
                 <tr *ngFor="let job of applied" >
                     <td>{{job.companyName}}</td>
-                    <td>{{job.jobsdetails.jobRole}}</td>
-                    <td>{{job.jobsdetails.jobType}}</td>
-                    <td >{{job.jobsdetails.expRequired}}</td>
+                    <td>{{job.jobDetails.jobRole}}</td>
+                    <td>{{job.jobDetails.jobType}}</td>
+                    <td >{{job.jobDetails.expRequired}}</td>
                     <td><button class="btn btn-success" style="width:100%;height:auto;border-radius: 45px;"
                             disabled>Applied</button>
                         <!-- <small>{{job.jobDetails.postedDate}}</small> -->

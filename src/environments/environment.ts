@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  ApiUrl:"http://localhost:3000/"
+  PRIVATEApiUrl:"https://localhost:51031/private/",
+  PUBLICApiUrl:"https://localhost:51031/public/",
 };
 
 /*
