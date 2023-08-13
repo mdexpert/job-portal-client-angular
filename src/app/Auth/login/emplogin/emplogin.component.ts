@@ -28,7 +28,7 @@ export class EmploginComponent implements OnInit {
     //console.log(JSON.stringify(this.loginForm.value.username));
     this.empservice.login(JSON.stringify(this.loginForm.value))
       .subscribe(
-        (response: any) => { console.log(2324)
+        (response: any) => { 
           if (response.status && response.status === 1) {
             this.loginsuccess = "Login Success-Going to Dashboard";
             localStorage.setItem('token',response.data.token);
@@ -41,11 +41,11 @@ export class EmploginComponent implements OnInit {
               this.router.navigate(['dashboard/jobs']);
             }, 2000);
           }
-          else {console.log(22324)
+          else {
             this.loginfail = "Invalid Username/Password";
           }
         },
-        (error) => { console.log(5324);console.log(error); }
+        (error) => { console.log(error); }
       );
   }
   get form(){

@@ -4,10 +4,12 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {HttpClientModule } from '@angular/common/http';
+import {HttpClientModule ,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './Auth/login/login.component';
 import {ForseekerService} from './forseeker.service';
 import {ForrecruiterService} from './forrecruiter.service';
+import { ExampleInterceptorInterceptor } from './example-interceptor.interceptor';
+
 //import { SearchComponent } from './seeker/search/search.component';
 //import { EditprofileComponent } from './seeker/editprofile/editprofile.component';
 //import { PostjobComponent } from './recruiter/rdashboard/postjob/postjob.component';
@@ -45,7 +47,10 @@ import {ForrecruiterService} from './forrecruiter.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ForseekerService,ForrecruiterService],
+  providers: [{ 
+                provide: HTTP_INTERCEPTORS, useClass: ExampleInterceptorInterceptor, multi:true
+            },
+  ForseekerService,ForrecruiterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
