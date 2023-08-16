@@ -31,7 +31,8 @@ export class PostjobComponent implements OnInit {
   }
   logoutRecruiter() {
     this.recservice.logout();
-    this.router.navigate(['login/rec_login'])
+    //this.router.navigate(['login/rec_login'])
+    this.router.navigate(['login/emp_login'])
   }
   postajob() {
     console.log(this.postjobForm.value);

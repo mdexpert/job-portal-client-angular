@@ -16,7 +16,8 @@ export class RdashboardComponent implements OnInit {
   logoutRecruiter()
   {
     this.recservice.logout();
-    this.router.navigate(['login/rec_login'],)
+    //this.router.navigate(['login/rec_login'],)
+    this.router.navigate(['login/emp_login'],)
   }
   applied_Employees()
   {

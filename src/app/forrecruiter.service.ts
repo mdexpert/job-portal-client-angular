@@ -104,8 +104,8 @@ getpayload()
 logout()
 {
   localStorage.removeItem('token');
-  //localStorage.removeItem('currentrecruiter');
-  localStorage.removeItem('currentemployeeid')
+  localStorage.removeItem('currentrecruiter');
+  // localStorage.removeItem('currentemployeeid')
 }
 }
 
