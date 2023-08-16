@@ -37,7 +37,8 @@ export class RecruiterloginComponent implements OnInit {
             setTimeout(() => {
               
              //localStorage.setItem('currentemployeeid',payload.id);
-              this.router.navigate(['rdashboard/postedjobs']);
+             this.router.navigate([response.redirect_uri]);
+              //this.router.navigate(['rdashboard/postedjobs']);
             }, 3000);
           }
           else {

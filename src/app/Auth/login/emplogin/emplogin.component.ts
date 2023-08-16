@@ -36,9 +36,10 @@ export class EmploginComponent implements OnInit {
               localStorage.setItem('currentemployee',payload.username);
             this.loginForm.reset();
             setTimeout(() => {
-              
+              console.log(response);
              //localStorage.setItem('currentemployeeid',payload.id);
-              this.router.navigate(['dashboard/jobs']);
+              this.router.navigateByUrl(response.redirect_uri);
+              //this.router.navigate(['dashboard/jobs']);
             }, 2000);
           }
           else {
