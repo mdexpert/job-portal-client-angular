@@ -16,22 +16,19 @@ export class EmpregisterComponent implements OnInit {
   regisserver:any;
   ngOnInit() {
     this.EmpRegisterForm=this.fb.group({
-      username: ['',Validators.required],
+
+      email:['',Validators.compose([Validators.required,Validators.email])],
       password: ['',Validators.compose([Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"),Validators.minLength(8)])],
-      mail:['',Validators.compose([Validators.required,Validators.email])],
-      gender: ['',Validators.required],
-      mobile: ['',Validators.required],
-      hometown: [''],
-      interests: [''],
-      experience: [''],
-      maritalStatus: ['',Validators.required],
-      nationality: [''],
-      languages: [''],
-      currentLocation: [''],
-      lastjobexp: ['',Validators.required],
-      lastjobDesig: ['',Validators.required],
-      department: [''],
-      reasonsforleaving: ['']
+      mobile: [''],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      country: ['',Validators.required],
+      state: ['',Validators.required],
+      profession: ['',Validators.required],
+      skillList: [''],
+      Industry: [''],
+      referenceCOde: [''],
+      inviteCode: ['']             
       });
   }
   registeremployee()

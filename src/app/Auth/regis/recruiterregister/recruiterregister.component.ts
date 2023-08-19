@@ -16,12 +16,20 @@ export class RecruiterregisterComponent implements OnInit {
   regisserver:any;
   ngOnInit() {
     this.RecruiterRegisterForm=this.fb.group({
-      companyName: ['',Validators.required],
-      password: ['',Validators.compose([Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"),Validators.minLength(8)])],
       companyMail:['',Validators.compose([Validators.required,Validators.email])],
-      industryType:['',Validators.required],
-      yearsofExp: [''],
-      About: ['',Validators.required]
+      password: ['',Validators.compose([Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"),Validators.minLength(8)])],
+      mobile: [''],
+      firstName: ['',Validators.required],
+      lastName: ['',Validators.required],
+      country: ['',Validators.required],
+      state: ['',Validators.required],
+      companyName: ['',Validators.required],
+      referenceCOde: [''],
+      inviteCode: [''],      
+      
+      // industryType:['',Validators.required],
+      // yearsofExp: [''],
+      // About: ['',Validators.required]
       });
   }
   register_rectuiter()

@@ -17,24 +17,66 @@
 
             <form class="form-horizontal" [formGroup]="RecruiterRegisterForm">
                 <div class="form-group">
-                    <label for="companyname" class="col-sm-3 control-label">CompanyName</label>
+                    <!-- <label for="email" class="col-sm-3 control-label">Email* </label> -->
                     <div class="col-sm-9">
-                        <input type="text" id="companyname" formControlName="companyName" placeholder="companyname" class="form-control"  autofocus>
+                        <input type="email" formControlName="companyMail" id="email" placeholder="Enter your email" class="form-control" name= "email">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password*</label>
+                    <!-- <label for="password" class="col-sm-3 control-label">Password*</label> -->
                     <div class="col-sm-9">
-                        <input type="password" id="password" formControlName="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" formControlName="password" placeholder="Enter a password" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email* </label>
+                    <!-- <label for="mobile" class="col-sm-3 control-label">mobile</label> -->
                     <div class="col-sm-9">
-                        <input type="email" formControlName="companyMail" id="email" placeholder="mail" class="form-control" name= "email">
+                        <input type="mobile" id="mobile" formControlName="mobile" placeholder="Phone number" class="form-control">
+                    </div>
+                </div>        
+                <div class="form-group">
+                    <!-- <label for="firstName" class="col-sm-3 control-label">firstName</label> -->
+                    <div class="col-sm-9">
+                        <input type="firstName" id="firstName" formControlName="firstName" placeholder="First Name" class="form-control">
+                    </div>
+                </div>        
+                <div class="form-group">
+                    <!-- <label for="lastName" class="col-sm-3 control-label">lastName</label> -->
+                    <div class="col-sm-9">
+                        <input type="lastName" id="lastName" formControlName="lastName" placeholder="Last Name" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
+                    <!-- <label for="country" class="col-sm-3 control-label">country</label> -->
+                    <div class="col-sm-9">
+                        <input type="country" id="country" formControlName="country" placeholder="Country" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="state" class="col-sm-3 control-label">state</label> -->
+                    <div class="col-sm-9">
+                        <input type="state" id="state" formControlName="state" placeholder="State" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="companyname" class="col-sm-3 control-label">CompanyName</label> -->
+                    <div class="col-sm-9">
+                        <input type="text" id="companyname" formControlName="companyName" placeholder="Name of the organization" class="form-control"  autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="referenceCOde" class="col-sm-3 control-label">referenceCOde</label> -->
+                    <div class="col-sm-9">
+                        <input type="referenceCOde" id="referenceCOde" formControlName="referenceCOde" placeholder="Reference Code" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="inviteCode" class="col-sm-3 control-label">inviteCode</label> -->
+                    <div class="col-sm-9">
+                        <input type="inviteCode" id="inviteCode" formControlName="inviteCode" placeholder="Invite Code" class="form-control">
+                    </div>
+                </div>                        
+                <!-- <div class="form-group">
                     <label for="industry" class="col-sm-3 control-label">Industry</label>
                     <div class="col-sm-9">
                         <input type="text" id="industry" formControlName="industryType" placeholder="Last Designation" class="form-control"  >
@@ -51,8 +93,24 @@
                     <div class="col-sm-9">
                         <input type="text" id="about" formControlName="About" placeholder="Not Mandatory" class="form-control"  autofocus>
                     </div>
+                </div> -->
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input id="id_tos" name="tos" type="checkbox" required> &nbsp;
+                        <label for="id_tos">
+                            <span>I agree with <a target="_blank" href="https://www.workingnomads.com/terms-and-conditions">Terms of Service</a>.</span>
+                        </label>
+                    </div>
                 </div>
-               
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <input id="id_privacy" name="privacy" type="checkbox" required> &nbsp;
+                        <label for="id_privacy">
+                            <span>I agree with <a target="_blank" href="https://www.workingnomads.com/privacy-policy">Privacy policy</a>.</span>
+                        </label>
+                    </div>
+                </div>                
                 <button type="submit" class="btn btn-primary"  (click)="register_rectuiter()">Register</button>
             </form> <!-- /form -->
         </div>
