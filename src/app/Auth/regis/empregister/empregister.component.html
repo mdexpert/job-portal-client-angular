@@ -17,56 +17,70 @@
         <div class="container mt-3">
 
             <form class="form-horizontal" [formGroup]="EmpRegisterForm">
-                <div class="form-group">
-                    <label for="email" class="col-sm-3 control-label">Email* </label>
+
+
+                <div class="fontuser form-group">
+                    <!-- <label for="email" class="col-sm-3 control-label">Email* </label> -->                    
                     <div class="col-sm-9">
-                        <input type="email" formControlName="email" id="email" placeholder="mail" class="form-control" name= "email">
+                        <input type="email" formControlName="email" id="email" placeholder="Enter your email" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-envelope"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="password" class="col-sm-3 control-label">Password*</label>
+                
+                <div class="fontuser form-group">
+                    <!-- <label for="password" class="col-sm-3 control-label">Password*</label> -->
                     <div class="col-sm-9">
-                        <input type="password" id="password" formControlName="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" formControlName="password" placeholder="Enter a password" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-lock"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="mobile" class="col-sm-3 control-label">mobile</label>
+                 
+                <div class="fontuser form-group">
+                    <!-- <label for="mobile" class="col-sm-3 control-label">mobile</label> -->
                     <div class="col-sm-9">
-                        <input type="mobile" id="mobile" formControlName="mobile" placeholder="mobile" class="form-control">
+                        <input type="mobile" id="mobile" formControlName="mobile" placeholder="Phone number"class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                </div>
+                <div class="fontuser form-group">
+                    <!-- <label for="firstName" class="col-sm-3 control-label">firstName</label> -->
+                    <div class="col-sm-9">
+                        <input type="firstName" id="firstName" formControlName="firstName" placeholder="First Name" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-address-card"></i>
                     </div>
                 </div>        
-                <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">firstName</label>
+                <div class="fontuser form-group">
+                    <!-- <label for="lastName" class="col-sm-3 control-label">lastName</label> -->
                     <div class="col-sm-9">
-                        <input type="firstName" id="firstName" formControlName="firstName" placeholder="firstName" class="form-control">
-                    </div>
-                </div>        
-                <div class="form-group">
-                    <label for="lastName" class="col-sm-3 control-label">lastName</label>
-                    <div class="col-sm-9">
-                        <input type="lastName" id="lastName" formControlName="lastName" placeholder="lastName" class="form-control">
+                        <input type="lastName" id="lastName" formControlName="lastName" placeholder="Last Name" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-address-card-o"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="country" class="col-sm-3 control-label">country</label>
+                <div class="fontuser form-group">
+                    <!-- <label for="country" class="col-sm-3 control-label">country</label> -->
                     <div class="col-sm-9">
-                        <input type="country" id="country" formControlName="country" placeholder="country" class="form-control">
+                        <input type="country" id="country" formControlName="country" placeholder="Country" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-globe"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="state" class="col-sm-3 control-label">state</label>
+                <div class="fontuser form-group">
+                    <!-- <label for="state" class="col-sm-3 control-label">state</label> -->
                     <div class="col-sm-9">
-                        <input type="state" id="state" formControlName="state" placeholder="state" class="form-control">
+                        <input type="state" id="state" formControlName="state" placeholder="State" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-anchor"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="profession" class="col-sm-3 control-label">profession</label>
+
+
+                <div class="fontuser form-group">
                     <div class="col-sm-9">
-                        <input type="text" id="profession" formControlName="profession" placeholder="profession" class="form-control"  autofocus>
+                        <input type="text" id="profession" formControlName="profession" placeholder="profession" autofocus class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-group"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">skillList(max-3):</label>
+
+                <div class="fontuser form-group">
+                    <label class="col-sm-3 control-label">Skill List(max-3):</label>
                     <select name="skillList" id="skillList" class="custom-select" multiple formControlName="skillList">
                         <option value="IOT">IOT</option>
                         <option value="AI">AI</option>
@@ -74,7 +88,7 @@
                         <option value="WEB DEVELOPEMNT">WEB DEVELOPEMNT</option>
                     </select>
                 </div> 
-                <div class="form-group">
+                <div class="fontuser form-group">
                     <label class="col-sm-3 control-label">Select Industry</label>
                     <select name="Industry" id="dep" formControlName="Industry">
                         <option value="IT" selected>IT</option>
@@ -82,18 +96,21 @@
                         <option value="Others">Others</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="referenceCOde" class="col-sm-3 control-label">referenceCOde</label>
+                <div class="fontuser form-group">
+                    <!-- <label for="referenceCOde" class="col-sm-3 control-label">referenceCOde</label> -->
                     <div class="col-sm-9">
-                        <input type="referenceCOde" id="referenceCOde" formControlName="referenceCOde" placeholder="referenceCOde" class="form-control">
+                        <input type="referenceCOde" id="referenceCOde" formControlName="referenceCOde" placeholder="Reference Code" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-asterisk"></i>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="inviteCode" class="col-sm-3 control-label">inviteCode</label>
+                <div class="fontuser form-group">
+                    <!-- <label for="inviteCode" class="col-sm-3 control-label">inviteCode</label> -->
                     <div class="col-sm-9">
-                        <input type="inviteCode" id="inviteCode" formControlName="inviteCode" placeholder="inviteCode" class="form-control">
+                        <input type="inviteCode" id="inviteCode" formControlName="inviteCode" placeholder="Invite Code" class="form-control fontawesomyInputRgstr">
+                        <i class="fa fa-paw"></i>
                     </div>
-                </div>                                     
+                </div>
+
                 <!-- <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
                     <div class="col-sm-9">

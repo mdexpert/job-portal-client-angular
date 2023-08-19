@@ -1,0 +1,24 @@
+  /* Assign full width inputs*/ 
+  .fontawesomyInputRgstr { 
+      width: 100%; 
+      padding: 8px 40px; 
+      margin: 8px 0; 
+      display: inline-block; 
+      border: 1px solid #ccc; 
+      box-sizing: border-box; 
+  } 
+    
+   
+  .fontuser {
+      position: relative;
+  }
+    
+  .fontuser i{
+    position: absolute;
+    left: 5%;
+    top: 39%;
+    color: gray;
+  }
+     
+
+  /* https://www.geeksforgeeks.org/how-to-place-font-awesome-icon-to-input-field/ */

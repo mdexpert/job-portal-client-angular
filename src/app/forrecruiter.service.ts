@@ -21,7 +21,7 @@ constructor(private httpCli:HttpClient) { }
     );
   }
   recruiter_register(body:any){
-    return this.httpCli.post(`${PUBLIC}addrecruiter`,body,
+    return this.httpCli.post(`${PUBLIC}recruiter/addrecruiter`,body,
     {
       observe:'body',
       headers:new HttpHeaders().append('Content-Type','application/json')

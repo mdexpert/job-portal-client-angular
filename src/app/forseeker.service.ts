@@ -21,7 +21,7 @@ export class ForseekerService {
     );
   }
   employee_register(body:any){
-    return this.httpCli.post(`${PUBLIC}addemployee`,body,
+    return this.httpCli.post(`${PUBLIC}employee/addemployee`,body,
     {
       observe:'body',
       headers:new HttpHeaders().append('Content-Type','application/json')
