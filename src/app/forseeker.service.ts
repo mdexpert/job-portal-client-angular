@@ -12,7 +12,7 @@ export class ForseekerService {
   constructor(private httpCli:HttpClient) { }
   
   login(body:any){
-    return this.httpCli.post(`${PUBLIC}employee/login`,body
+    return this.httpCli.post(`${PUBLIC}user/login`,body
     ,{
       observe:'body',
       //withCredentials:true,
@@ -36,8 +36,7 @@ export class ForseekerService {
          'Content-Type':'application/json',
         'Authorization': 'Bearer '+this.gettoken()
       })
-    };
-    console.log(httpOptions); 
+    }; 
     return this.httpCli.get(`${PRIVATE}employees/getjobs/${this.getpayload().id}`,httpOptions);
   }
   searchbycompany(companyname)

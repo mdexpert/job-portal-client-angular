@@ -23,16 +23,13 @@ export class PostedjobsComponent implements OnInit {
     this.recservice.getpostedjobs().subscribe(
       (response:any)=>{
         if(response.status && response.status==1){
-        console.log(response);
         this.posted=response.data;
         this.totaljobs=response.data.length;
         this.successmsg=true;
         }
         
       else{
-        console.log(response);
         this.nojobs=response.message;
-        console.log(response.length);
         
         //console.log(this.applied);
       }

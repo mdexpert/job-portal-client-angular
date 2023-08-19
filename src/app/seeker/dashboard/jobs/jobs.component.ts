@@ -43,8 +43,6 @@ headers=['Company Name','Job Role','Skills','Job Type','Experience',''];
     this.seekerservice.applyjob(jobapply).subscribe(
       (response:any)=>{
         if(response.status && response.status==1){
-          //console.log(response);
-         // 
          this.appliedmessage=response.message;
          setTimeout(()=>{
           this.appliedmessage='';

@@ -60,6 +60,14 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "development":{
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
@@ -71,6 +79,9 @@
           "configurations": {
             "production": {
               "browserTarget": "portal:build:production"
+            },
+            "development": {
+              "browserTarget": "portal:build:development"
             }
           }
         },
@@ -119,6 +130,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "portal:serve:production"
+            },
+            "development": {
+              "devServerTarget": "portal:serve:development"
             }
           }
         }

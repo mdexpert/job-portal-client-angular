@@ -12,7 +12,7 @@ export class EmploginComponent implements OnInit {
   loginfail: any;
   constructor(private router: Router, private empservice: ForseekerService,private fb:FormBuilder) { }
   loginForm: FormGroup = this.fb.group({
-    username: [null,Validators.required],
+    email: [null,Validators.required],
     password: [null,Validators.compose([Validators.required,Validators.minLength(5)])]
   });
   ngOnInit() {
@@ -20,8 +20,7 @@ export class EmploginComponent implements OnInit {
   moveToRegister() {
     this.router.navigate(['register/emp_register']);
   }
-  login() {
-    console.log(13);
+  login() { 
     // if (!this.loginForm.valid) {
     //   console.log('Invalid'); return;
     // }
@@ -36,10 +35,13 @@ export class EmploginComponent implements OnInit {
               localStorage.setItem('currentemployee',payload.username);
             this.loginForm.reset();
             setTimeout(() => {
-              console.log(response);
-             //localStorage.setItem('currentemployeeid',payload.id);
-              this.router.navigateByUrl(response.redirect_uri);
-              //this.router.navigate(['dashboard/jobs']);
+             //localStorage.setItem('currentemployeeid',payload.id);              
+              if(response.isEmployee){
+                this.router.navigate(['dashboard/jobs']);
+              }else{
+                this.router.navigate(["rdashboard/postedjobs"]);
+              }
+              
             }, 2000);
           }
           else {
