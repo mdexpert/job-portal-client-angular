@@ -49,6 +49,8 @@ export class EmpregisterComponent implements OnInit {
             setTimeout(() => {
               this.router.navigate(['/login/emp_login']);
             }, 3000);
+        }else if(response.status===3){
+          this.regisfail='Email already exists';
         }else{
           this.regisfail='You are already a job seeker';
           console.log(this.regisfail);
