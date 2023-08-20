@@ -40,7 +40,8 @@ export class EmploginComponent implements OnInit {
             localStorage.setItem('token',response.data.token);
             let payload=this.empservice.getpayload();
               
-            this.loginForm.reset();
+            this.loginForm.reset();this.submitted = false;  // false because form is being reset
+            
             setTimeout(() => {
                        
              

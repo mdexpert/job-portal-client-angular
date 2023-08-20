@@ -14,15 +14,16 @@ export class RecruiterregisterComponent implements OnInit {
   registrationsuccess:any;
   regisfail:any;
   regisserver:any;
+  submitted =false;
   ngOnInit() {
     this.RecruiterRegisterForm=this.fb.group({
       email:['',Validators.compose([Validators.required,Validators.email])],
-      password: ['',Validators.compose([Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"),Validators.minLength(8)])],
+      password: ['',Validators.required],
       mobile: [''],
       firstName: ['',Validators.required],
-      lastName: ['',Validators.required],
-      country: ['',Validators.required],
-      state: ['',Validators.required],
+      lastName: [''],
+      country: [''],
+      state: [''],
       companyName: ['',Validators.required],
       referenceCOde: [''],
       inviteCode: [''],      
@@ -34,6 +35,12 @@ export class RecruiterregisterComponent implements OnInit {
   }
   register_rectuiter()
   {
+    this.submitted = true;
+
+    if (!this.RecruiterRegisterForm.valid) {       
+       return;
+    }
+
     this.rec_service.recruiter_register(JSON.stringify(this.RecruiterRegisterForm.value)).subscribe(
       (response:any)=>{
         if(response.status===1){
@@ -45,7 +52,7 @@ export class RecruiterregisterComponent implements OnInit {
         }else{
           this.regisfail='You are already a job Giver';
           console.log(this.regisfail);
-        }
+         }
       },
       (error)=>{
           this.regisserver='Internal server error'; 
@@ -53,5 +60,7 @@ export class RecruiterregisterComponent implements OnInit {
 
     );
   }
+
+  get form() { return this.RecruiterRegisterForm.controls; }
 
 }

@@ -20,15 +20,21 @@
                 <div class="fontuser form-group">
                     <!-- <label for="email" class="col-sm-3 control-label">Email* </label> -->                    
                     <div class="col-sm-9">
-                        <input type="email" formControlName="email" id="email" placeholder="Enter your email" class="form-control fontawesomyInputRgstr">
+                        <input type="email" formControlName="email" id="email" placeholder="Enter your email" class="form-control fontawesomyInputRgstr" [ngClass]="{ 'is-invalid': submitted && form.email.errors }" />
                         <i class="fa fa-envelope"></i>
+                    </div>
+                    <div style="color: red;"  class="col-sm-9" *ngIf="submitted && form.email.errors">
+                         *Valid email is required
                     </div>
                 </div>
                 <div class="fontuser form-group">
                     <!-- <label for="password" class="col-sm-3 control-label">Password*</label> -->
                     <div class="col-sm-9">
-                        <input type="password" id="password" formControlName="password" placeholder="Enter a password" class="form-control fontawesomyInputRgstr">
+                        <input type="password" id="password" formControlName="password" placeholder="Enter a password" class="form-control fontawesomyInputRgstr" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
                         <i class="fa fa-lock"></i>
+                    </div>
+                    <div style="color: red;"  class="col-sm-9" *ngIf="submitted && form.password.errors">
+                         *Valid password is required
                     </div>
                 </div>
                 <div class="fontuser form-group">
@@ -41,9 +47,12 @@
                 <div class="fontuser form-group">
                     <!-- <label for="firstName" class="col-sm-3 control-label">firstName</label> -->
                     <div class="col-sm-9">
-                        <input type="firstName" id="firstName" formControlName="firstName" placeholder="First Name" class="form-control fontawesomyInputRgstr">
+                        <input type="firstName" id="firstName" formControlName="firstName" placeholder="First Name" class="form-control fontawesomyInputRgstr" [ngClass]="{ 'is-invalid': submitted && form.firstName.errors }" />
                         <i class="fa fa-address-card"></i>
                     </div>
+                    <div style="color: red;"  class="col-sm-9" *ngIf="submitted && form.firstName.errors">
+                        *First Name is required
+                   </div>
                 </div>        
                 <div class="fontuser form-group">
                     <!-- <label for="lastName" class="col-sm-3 control-label">lastName</label> -->
@@ -69,9 +78,12 @@
                 <div class="fontuser form-group">
                     <!-- <label for="companyname" class="col-sm-3 control-label">CompanyName</label> -->
                     <div class="col-sm-9">
-                        <input type="text" id="companyname" formControlName="companyName" placeholder="Name of the organization" autofocus class="form-control fontawesomyInputRgstr">
+                        <input type="text" id="companyname" formControlName="companyName" placeholder="Name of the organization" autofocus class="form-control fontawesomyInputRgstr" [ngClass]="{ 'is-invalid': submitted && form.companyName.errors }" />
                         <i class="fa fa-sitemap"></i>
                     </div>
+                    <div style="color: red;"  class="col-sm-9" *ngIf="submitted && form.companyName.errors">
+                        *Company Name is required
+                   </div>
                 </div>
                 <div class="fontuser form-group">
                     <!-- <label for="referenceCOde" class="col-sm-3 control-label">referenceCOde</label> -->

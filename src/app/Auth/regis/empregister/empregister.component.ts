@@ -14,17 +14,18 @@ export class EmpregisterComponent implements OnInit {
   registrationsuccess:any;
   regisfail:any;
   regisserver:any;
+  submitted =false;
   ngOnInit() {
     this.EmpRegisterForm=this.fb.group({
 
       email:['',Validators.compose([Validators.required,Validators.email])],
-      password: ['',Validators.compose([Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"),Validators.minLength(8)])],
+      password: ['',Validators.required],
       mobile: [''],
       firstName: ['',Validators.required],
-      lastName: ['',Validators.required],
-      country: ['',Validators.required],
-      state: ['',Validators.required],
-      profession: ['',Validators.required],
+      lastName: [''],
+      country: [''],
+      state: [''],
+      profession: [''], 
       skillList: [''],
       Industry: [''],
       referenceCOde: [''],
@@ -33,6 +34,12 @@ export class EmpregisterComponent implements OnInit {
   }
   registeremployee()
   {
+    this.submitted = true;
+
+    if (!this.EmpRegisterForm.valid) {       
+       return;
+    }
+    
     //console.log(this.EmpRegisterForm.value);
     this.seekerservice.employee_register(JSON.stringify(this.EmpRegisterForm.value)).subscribe(
       (response:any)=>{
@@ -53,5 +60,8 @@ export class EmpregisterComponent implements OnInit {
 
     );
   }
+
+
+  get form() { return this.EmpRegisterForm.controls; }
 
 }
