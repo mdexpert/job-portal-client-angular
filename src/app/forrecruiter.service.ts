@@ -91,22 +91,34 @@ getpayload()
   let token=this.gettoken();
   return JSON.parse(window.atob(token.split('.')[1])); 
 }
-// getprofile()
-// {
-//   const httpOptions = {
-//     headers: new HttpHeaders({
-//       'Content-Type':'application/json',
-//       'Authorization': `Bearer${this.gettoken()}`
-//     })
-//   };
-//   return this.httpCli.get(`${PRIVATE}employees/profile/${this.getpayload().id}`,httpOptions);
-// }
+ 
 logout()
 {
   localStorage.removeItem('token');
   localStorage.removeItem('currentrecruiter');
   // localStorage.removeItem('currentemployeeid')
 }
+
+getprofile()
+{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': `Bearer${this.gettoken()}`
+    })
+  };
+  return this.httpCli.get(`${PRIVATE}recruiters/profile/${this.getpayload().id}`,httpOptions);
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 
