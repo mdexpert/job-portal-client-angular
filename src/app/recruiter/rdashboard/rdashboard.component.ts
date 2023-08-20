@@ -10,8 +10,10 @@ export class RdashboardComponent implements OnInit {
 
   constructor(private router:Router,private activeroute:ActivatedRoute,private recservice:ForrecruiterService) { }
   companyName:any;
+  currentrecruiter:any;
   ngOnInit() {
-    this.companyName=this.recservice.getpayload().companyName;
+    this.companyName=this.recservice.getpayload().companyName;     
+    this.currentrecruiter=this.recservice.getpayload().username;
   }
   logoutRecruiter()
   {

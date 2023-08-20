@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators,FormBuilder ,ValidationErrors } from '@angular/forms';
 import { ForseekerService } from '../../../forseeker.service';
 @Component({
   selector: 'app-emplogin',
@@ -10,21 +10,28 @@ import { ForseekerService } from '../../../forseeker.service';
 export class EmploginComponent implements OnInit {
   loginsuccess: any;
   loginfail: any;
-  constructor(private router: Router, private empservice: ForseekerService,private fb:FormBuilder) { }
-  loginForm: FormGroup = this.fb.group({
-    email: [null,Validators.required],
-    password: [null,Validators.compose([Validators.required,Validators.minLength(5)])]
-  });
+  loginForm: FormGroup;
+  constructor(private router: Router, private empservice: ForseekerService,private fb:FormBuilder) { }  
+  submitted =false;
+
+
   ngOnInit() {
+    this.loginForm =  this.fb.group({
+      email: [null, [Validators.required, Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]], 
+      password: [null,Validators.required]
+    });
   }
   moveToRegister() {
     this.router.navigate(['register/emp_register']);
   }
   login() { 
-    // if (!this.loginForm.valid) {
-    //   console.log('Invalid'); return;
-    // }
-    //console.log(JSON.stringify(this.loginForm.value.username));
+    this.submitted = true;
+
+    if (!this.loginForm.valid) {
+      this.getFormValidationErrors();
+       return;
+    }
+     
     this.empservice.login(JSON.stringify(this.loginForm.value))
       .subscribe(
         (response: any) => { 
@@ -32,13 +39,18 @@ export class EmploginComponent implements OnInit {
             this.loginsuccess = "Login Success-Going to Dashboard";
             localStorage.setItem('token',response.data.token);
             let payload=this.empservice.getpayload();
-              localStorage.setItem('currentemployee',payload.username);
+              
             this.loginForm.reset();
             setTimeout(() => {
-             //localStorage.setItem('currentemployeeid',payload.id);              
+                       
+             
               if(response.isEmployee){
+                localStorage.setItem('currentemployeeid',payload.id);    
+                localStorage.setItem('currentemployee',payload.email);
                 this.router.navigate(['dashboard/jobs']);
               }else{
+                localStorage.setItem('id',payload.id);    
+                localStorage.setItem('currentrecruiter',payload.email);
                 this.router.navigate(["rdashboard/postedjobs"]);
               }
               
@@ -46,6 +58,7 @@ export class EmploginComponent implements OnInit {
           }
           else {
             this.loginfail = "Invalid Username/Password";
+            this.loginsuccess=false; 
           }
         },
         (error) => { console.log(error); }
@@ -58,6 +71,16 @@ export class EmploginComponent implements OnInit {
   //   (<HTMLFormElement>document.getElementById("loginform")).reset();
   //  }
 
+  getFormValidationErrors() {
+    Object.keys(this.loginForm.controls).forEach(key => {
+      const controlErrors: ValidationErrors = this.loginForm.get(key).errors;
+      if (controlErrors != null) {
+        Object.keys(controlErrors).forEach(keyError => {
+         console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+        });
+      }
+    });
+  }
 
 
 }
