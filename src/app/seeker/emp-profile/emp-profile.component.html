@@ -23,7 +23,7 @@
         </li> -->
       <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle p-3"  id="navbardrop" data-toggle="dropdown" style="cursor: pointer;">
-            <i class="fa fa-user"></i>Hi, {{username}}
+            <i class="fa fa-user"></i>Hi, {{email}}
           </a>
           <div class="dropdown-menu dropdown-menu-right bg-light">
             <a class="dropdown-item p-2" (click)="gotoprofilepage()" style="cursor: pointer;">Profile</a>
@@ -41,17 +41,19 @@
 </div>
 <div class="container mt-3 bg-light">
   <div class="row">
-    <div class="col-md-4 p-2">
+
+    
+    <!-- <div class="col-md-4 p-2">
       <div class="col-sm-12 text-center">
-        <h1>{{profileinfo.username}}</h1>
+        <h1>{{profileinfo.email}}</h1>
       </div>
       <hr>
       <div class="col-sm-12 text-center p-2" *ngIf="!picexists;else defaultavatar">
-        <img src="{{profileinfo.profileimage}}" alt={{profileinfo.username}} id="pimage">
-        <!-- <form>
+        <img src="{{profileinfo.profileimage}}" alt={{profileinfo.email}} id="pimage">
+         <form>
                   <input type="file" name="image" (change)="selectimage($event)"/>
                 </form>
-                <button type="button" (click)="upload()">upload</button> -->
+                <button type="button" (click)="upload()">upload</button> 
       </div>
       <ng-template #defaultavatar>
         <img src="../../../assets/avatar.jpg" alt="avatar" id="pimage">
@@ -75,7 +77,9 @@
         <small><b>HomeTown:</b></small>
         <h6 class="ml-2">{{profileinfo.hometown}}</h6>
       </div>
-    </div>
+    </div> -->
+
+
     <div class="col-sm-8 p-2">
       <div class="col-sm-12">
         <h1>Profile Details</h1>
@@ -100,48 +104,26 @@
           <div class="tab-content">
             <div id="basic" class="container tab-pane active"><br>
               <div class="col-sm-12">
-                <label for="username"><b>UserName:</b></label><br>
-                <input type="text" name="username" id="username" class="form-control" value={{profileinfo.username}}
+                <label for="email"><b>email:</b></label><br>
+                <input type="text" name="email" id="email" class="form-control" value={{profileinfo.email}}
                   disabled>
-              </div>
-              <div class="col-sm-12">
-                <label for="mail"><b>E-Mail:</b></label><br>
-                <input type="text" name="mail" id="mail" class="form-control" value={{profileinfo.mail}} disabled>
-              </div>
+              </div> 
               <div class="col-sm-12">
                 <label for="mobile"><b>Mobile:</b></label><br>
                 <input type="text" name="mobile" id="mobile" class="form-control" value={{profileinfo.mobile}} disabled>
-              </div>
-              <div class="col-sm-12">
-                <label for="gender"><b>Gender:</b></label><br>
-                <input type="text" name="gender" id="gender" class="form-control" value={{profileinfo.gender}} disabled>
-              </div>
-              <!-- <div class="col-sm-12">
-                <label for="password"><b>Password:</b></label><br>
-                <input type="password" name="password" id="password" class="form-control" value={{profileinfo.password}}
-                  disabled>
-              </div> -->
+              </div> 
             </div>
-            <div id="personal" class="container tab-pane fade"><br>
+            <div id="personal" class="container tab-pane fade"><br>               
+               
               <div class="col-sm-12">
-                <label for="mstatus"><b>MaritalStatus:</b></label><br>
-                <input type="text" name="mstatus" id="mstatus" class="form-control" value={{profileinfo.maritalStatus}}
-                  disabled>
+                <label for="country"><b>country:</b></label><br>
+                <input type="text" name="country" id="country" class="form-control"
+                  value={{profileinfo.country}} disabled>
               </div>
               <div class="col-sm-12">
-                <label for="hometown"><b>HomeTown</b></label><br>
-                <input type="text" name="hometown" id="hometown" class="form-control" value={{profileinfo.hometown}}
-                  disabled>
-              </div>
-              <div class="col-sm-12">
-                <label for="nationality"><b>Nationality:</b></label><br>
-                <input type="text" name="nationality" id="nationality" class="form-control"
-                  value={{profileinfo.nationality}} disabled>
-              </div>
-              <div class="col-sm-12">
-                <label for="currentlocation"><b>CurrentLocation:</b></label><br>
-                <input type="text" name="currentlocation" id="currentlocation" class="form-control"
-                  value={{profileinfo.currentLocation}} disabled>
+                <label for="state"><b>state:</b></label><br>
+                <input type="text" name="state" id="state" class="form-control"
+                  value={{profileinfo.state}} disabled>
               </div>
               <div class="col-sm-12">
                 <label for="experience"><b>Experience:</b></label><br>

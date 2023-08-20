@@ -16,7 +16,7 @@ export class RecruiterregisterComponent implements OnInit {
   regisserver:any;
   ngOnInit() {
     this.RecruiterRegisterForm=this.fb.group({
-      companyMail:['',Validators.compose([Validators.required,Validators.email])],
+      email:['',Validators.compose([Validators.required,Validators.email])],
       password: ['',Validators.compose([Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})"),Validators.minLength(8)])],
       mobile: [''],
       firstName: ['',Validators.required],
@@ -40,7 +40,7 @@ export class RecruiterregisterComponent implements OnInit {
           this.registrationsuccess='Congratulations your now a job Giver';
           this.RecruiterRegisterForm.reset();
             setTimeout(() => {
-              this.router.navigate(['/login/rec_login']);
+              this.router.navigate(['/login/emp_login']);
             }, 3000);
         }else{
           this.regisfail='You are already a job Giver';
