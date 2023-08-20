@@ -27,7 +27,8 @@ export class RecruiterregisterComponent implements OnInit {
       companyName: ['',Validators.required],
       referenceCOde: [''],
       inviteCode: [''],      
-      
+      acceptTerms: [false, Validators.requiredTrue],
+      acceptPrivacy: [false, Validators.requiredTrue]  //https://stackblitz.com/edit/angular-reactive-forms-required-checkbox?file=src%2Fapp%2Fapp.component.ts
       // industryType:['',Validators.required],
       // yearsofExp: [''],
       // About: ['',Validators.required]

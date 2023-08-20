@@ -120,18 +120,25 @@
 
                 <div class="form-group">
                     <div class="col-sm-9">
-                        <input id="id_tos" name="tos" type="checkbox" oninvalid="this.setCustomValidity('Please select at least one option to proceed')"> &nbsp;
-                        <label for="id_tos">
+                        <input name="acceptTerms" type="checkbox"  formControlName="acceptTerms" id="acceptTerms" 
+                        [ngClass]="{ 'is-invalid': submitted && form.acceptTerms.errors }" /> &nbsp;                                                
+                        
+                        <label for="acceptTerms">
                             <span>I agree with <a target="_blank" href="https://www.workingnomads.com/terms-and-conditions">Terms of Service</a>.</span>
                         </label>
+                        <div *ngIf="submitted && form.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-9">
-                        <input id="id_privacy" name="privacy" type="checkbox" required> &nbsp;
-                        <label for="id_privacy">
+                    <div class="col-sm-9"> 
+
+                        <input name="tos" type="checkbox"  formControlName="acceptPrivacy" id="acceptPrivacy" 
+                        [ngClass]="{ 'is-invalid': submitted && form.acceptPrivacy.errors }" /> &nbsp;                                            
+
+                        <label for="acceptPrivacy">
                             <span>I agree with <a target="_blank" href="https://www.workingnomads.com/privacy-policy">Privacy policy</a>.</span>
                         </label>
+                        <div *ngIf="submitted && form.acceptPrivacy.errors" class="invalid-feedback">Accept Privacy is required</div>
                     </div>
                 </div>                
                 <button type="submit" class="btn btn-primary"  (click)="register_rectuiter()">Register</button>
